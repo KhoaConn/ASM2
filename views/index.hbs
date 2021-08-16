@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Just For Fun</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
+        integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
+        integrity="sha512-894YE6QWD5I59HgZOGReFYm4dnWc1Qt5NtvYSaNcOP+u1T9qYdvdihz0PPSiiqn/+/3e7Jo4EaG7TubfWGUrMQ=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+</head>
+<style>
+    header {
+        background-color: rgb(150, 160, 160);
+        display: flex;
+        height: 100px;
+        justify-content: space-between;
+    }
+
+    header .logo-img {
+        width: 180px;
+        height: 11vh;
+        margin: 10px 0 0 20px;
+    }
+
+    h2 {
+        margin-left: 20px;
+        color: rgb(83, 79, 64);
+
+    }
+
+    .container {
+
+        display: flex;
+
+    }
+
+    .searchPro {
+        margin: 20px;
+        padding: 20px 0;
+
+    }
+
+    body {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url(https://img1.kienthucvui.vn/uploads/2020/08/02/hinh-nen-mau-trang-don-gian-dep-full-hd_030747061.jpg);
+    }
+
+    .insertPro {
+        margin: 10px 5px ;
+        position: absolute;
+        z-index: 1030;
+        display: none;
+        background-color: rgb(83, 79, 64);
+        text-align: center;
+
+    }
+    .btnP{
+        position: relative;
+    }
+    a {
+        background-color: rgb(83, 79, 64);
+        color: azure;
+    }
+</style>
+
+<body>
+    <header>
+        <div class="logo">
+            <a href="/" style="background-color: rgb(150, 160, 160);">
+                <img class="logo-img" src="https://i.pinimg.com/736x/6b/cc/79/6bcc79b5172fa5c55c189ff6269eca8e.jpg"
+                    alt="">
+            </a>
+        </div>
+        <div>
+            <h1>Product Manager</h1>
+        </div>
+        <div class="btnP">
+            <div class="searchPro">
+                <form action="/search" method="post">
+                    <input type="text" name="txtSearch" />
+                    <input type="submit" value="Search">
+                </form>
+            </div>
+            <div class="insert-btn">
+                <button>
+                   Add Product
+                </button>
+            </div>
+            <div class="insertPro">
+                <form action="/insert" method="post" style="width: 288px; height:30vh">
+                    Name <input type="text" name="txtName">
+                    <br>
+                    <br>
+                    Price <input type="text" name="txtPrice">
+                    <br>
+                    <br>
+                    Image <input type="text" name="txtImage">
+                    <br>
+                    <br>
+                    <input type="submit" value="Insert">
+                </form>
+            </div>
+        </div>
+
+    </header>
+
+    <h2>Information</h2>
+    <div class="container">
+        <div class="row row-cols-md-4">
+            {{#each data}}
+            <div class="col mb-4" style="width: 1140px;">
+                <div class="card">
+
+                    <img src="{{image}}" class="card-img-top" alt="..." style="height: 350px;">
+                    <div class="card-body">
+                        <h5 class="card-title">{{name}}</h5>
+                        <p class="card-text">{{price}}</p>
+                        <a href="/delete?id={{_id}}">Delete</a>
+                        <br>
+                        <a href="/edit?id={{_id}}">Edit</a>
+                    </div>
+
+                </div>
+            </div>
+            {{/each}}
+        </div>
+    </div>
+    <script>
+        $('.insert-btn').click(function () {
+            $('.insertPro').css('display', 'block');
+        });
+    </script>
+</body>
+
+</html>

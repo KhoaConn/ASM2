@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Infomation</title>
+</head>
+<style>
+    header {
+        background-color: rgb(150, 160, 160);
+        display: flex;
+        height: 100px;
+    }
+
+    header .logo-img {
+        width: 180px;
+        height: 11vh;
+        margin: 10px 0 0 20px;
+    }
+    header .namepage{
+        margin: 10px 500px 0 400px;
+    }
+    body {
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-image: url(https://img1.kienthucvui.vn/uploads/2020/08/02/hinh-nen-mau-trang-don-gian-dep-full-hd_030747061.jpg);
+    }
+    .updatePro{
+        margin-top: 50px;
+        text-align: center;
+    }
+</style>
+<body>
+    <header>
+        <div class="logo">
+            <a href="/" style="background-color: rgb(150, 160, 160);">
+                <img class="logo-img" src="https://i.pinimg.com/736x/6b/cc/79/6bcc79b5172fa5c55c189ff6269eca8e.jpg"
+                        alt="">
+            </a>
+        </div>
+        <div class="namepage"><h1>Edit Product</h1></div>
+        
+    </header>        
+    <div class="updatePro">
+        <form action="/update" method="post" >
+            <input type="hidden" name="id" value="{{product._id}}">
+            Name <input type="text" name="txtName" value="{{product.name}}">
+            <br>
+            <br>
+            Price <input type="text" name="txtPrice" value="{{product.price}}">
+            <br>
+            <br>
+            Image <input type="text" name="txtImage" value="{{product.image}}">
+            <br>
+            <br>
+            <input type="submit" value="Update">
+        </form>
+    </div>
+</body>
+</html>
