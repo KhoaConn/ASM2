@@ -4,7 +4,8 @@ const {ObjectId,MongoClient} = require('mongodb')
 
 
 const app = express()
-const url = 'mongodb://localhost:27017'
+//const url = 'mongodb://localhost:27017'
+const url ='mongodb+srv://new-khoa-27:1234qaz1234@cluster0.buvpy.mongodb.net/test'
 
 app.use(express.urlencoded({extended:true}))
 app.set('view engine','hbs')
