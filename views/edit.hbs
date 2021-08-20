@@ -30,6 +30,11 @@
         margin-top: 50px;
         text-align: center;
     }
+    .valid{
+        color: brown;
+        margin: auto;
+        font-size: 12px;
+    }
 </style>
 <body>
     <header>
@@ -41,11 +46,17 @@
         </div>
         <div class="namepage"><h1>Edit Product</h1></div>
         
-    </header>        
+    </header> 
+
     <div class="updatePro">
         <form action="/update" method="post" >
             <input type="hidden" name="id" value="{{product._id}}">
             Name <input type="text" name="txtName" value="{{product.name}}">
+                <div class="valid">
+                    <span>
+                        {{err.name}}
+                    </span>
+                </div>  
             <br>
             <br>
             Price <input type="text" name="txtPrice" value="{{product.price}}">

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Just For Fun</title>
+    <title>Gaos Ranger</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css"
         integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js"
@@ -66,6 +66,11 @@
         background-color: rgb(83, 79, 64);
         color: azure;
     }
+    .valid{
+        color: brown;
+        margin-left: 200px;
+        font-size: 20px;
+    }
 </style>
 
 <body>
@@ -109,8 +114,10 @@
         </div>
 
     </header>
-<span>{{err.name}}</span>
     <h2>Information</h2>
+    <div class="valid">
+        <span>{{err.name}}</span>        
+    </div>
     <div class="container">
         <div class="row row-cols-md-4">
              

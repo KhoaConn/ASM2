@@ -17,7 +17,7 @@ app.post('/insert', async (req, res) => {
     var errors = {}
     var isEr = false
     if(nameInput.length <5){
-        errors.name = "ten pahi tren 5 ki tu"
+        errors.name = "Name must be more than 5 characters"
         isEr = true
     }
 
@@ -38,10 +38,23 @@ app.post('/update', async (req, res) => {
     const nameInput = req.body.txtName
     const priceInput = req.body.txtPrice
     const imageInput = req.body.txtImage
-    const client = await MongoClient.connect(url)
-    const dbo = client.db("ASM2DB")
-    const updateProduct = await dbo.collection("products").updateOne({ _id: ObjectId(id) }, { $set: { name: nameInput, price: priceInput, image: imageInput } })
-    res.redirect('/')
+    var errors ={}
+    var isErr = false
+    if(nameInput.length <5)
+    {
+        errors.name = "Name must be more than 5 characters"
+        isErr = true
+    }
+    if(isErr){
+        res.render('edit',{err: errors})
+    }
+    else{
+        const client = await MongoClient.connect(url)
+        const dbo = client.db("ASM2DB")
+        const updateProduct = await dbo.collection("products").updateOne({ _id: ObjectId(id) }, { $set: { name: nameInput, price: priceInput, image: imageInput } })
+        res.redirect('/')        
+    }
+
 })
 
 app.post('/search', async (req, res) => {
